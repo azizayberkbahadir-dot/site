@@ -1,20 +1,30 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Gibango Elevator — Website
 
-# Run and deploy your AI Studio app
+Modern, luxury one-page website for **Gibango Company Limited** with a scroll-synced elevator-shaft background.
 
-This contains everything you need to run your app locally.
+## How to view
+**Double-click `index.html`** to open it in your browser. No installation, no build step.
+Keep the **`frames/`** folder next to `index.html` (the background reads its images from it).
 
-View your app in AI Studio: https://ai.studio/apps/1f0662b9-a86b-4ba0-abb4-a55a16b058f6
+## Files
+- `index.html` — the whole site (HTML + CSS + JavaScript).
+- `intro.mp4` — 5-second cinematic opening: the elevator drops down the shaft and stops. Its final frame exactly matches the first frame of the scroll background, so the hand-off is seamless. Plays once per session, has a Skip button, and is skipped entirely for reduced-motion visitors or if the file fails to load.
+- `frames/` — 81 JPG frames (`f_001.jpg … f_081.jpg`) of a cinematic elevator-shaft descent, generated with **Higgsfield AI (Kling 3.0)** and extracted into a frame sequence.
+- `cabins/` — 5 cabin photos used by the horizontal cabin slider.
 
-## Run Locally
+## How the background works
+- The frames are **preloaded**, then the displayed frame is mapped **directly to your scroll position**: top of the page = first frame, bottom of the page = last frame (the elevator settling at the misty shaft floor).
+- Because the frames are preloaded images (not a streamed video), scrolling is **smooth with no seek lag**, and the motion stays **locked to your scroll speed**. Neighbouring frames are cross-faded for extra smoothness.
+- If the visitor prefers reduced motion, the first frame is shown statically. A dark fallback colour shows until the frames load.
 
-**Prerequisites:**  Node.js
+## Sections
+Hero · About (Mission/Vision) · Services · Why Us · Stats · Cabin Gallery · Projects · Team · Contact.
+Brand: warm near-black + champagne gold `#c8a96a`; serif **Playfair Display** + **Jost**. Fully responsive with an animated mobile menu. The contact form opens the visitor's email app pre-filled to `office@gibango.com`, plus Call + WhatsApp shortcuts.
 
+## Things you may want to tweak
+- **Scroll feel** — the ease factor (`0.18`) and frame count control how tightly the descent tracks scrolling. Search the background script in `index.html`.
+- **Stats numbers** and **team roles** — illustrative placeholders; update in `index.html`.
+- **Contact form backend** — uses `mailto:`. For automatic delivery, connect a form service (e.g. Formspree).
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Publishing
+Upload **`index.html`**, **`intro.mp4`**, and the **`frames/`** and **`cabins/`** folders to any web host (your gibango.co.tz hosting, Netlify, Cloudflare Pages, etc.). Internet is needed only for the Google Fonts; everything else is local. Total weight is ~8 MB and loads in parallel in a second or two on real hosting.
