@@ -232,6 +232,9 @@ body.intro-done .intro-cue{opacity:.85;transform:translate(-50%,0)}
 .ci-item h4{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;font-family:'Inter';font-weight:500}
 .ci-item a,.ci-item p{color:var(--ivory);font-size:1rem;font-weight:400}
 .ci-item a:hover{color:var(--gold-light)}
+.ci-emails{display:flex;flex-direction:column;gap:7px}
+.ci-emails a{display:flex;align-items:baseline;gap:11px}
+.ci-emails a .dep{font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;font-family:'Inter';min-width:72px}
 .quick{display:flex;gap:12px;margin-top:28px}
 form{padding:38px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(15,13,10,.85)}
 .f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -546,11 +549,17 @@ body.intro-lock{overflow:hidden}
       <h2>Ready to Elevate Your Building?</h2>
       <p class="sub">Tell us about your project and our team will get back to you shortly. Whether it's a new installation, maintenance, or automatic doors — we're here to help.</p>
       <div class="ci-item"><div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div><div><h4>Phone</h4><a href="tel:+255743033310">+255 743 033 310</a></div></div>
-      <div class="ci-item"><div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7L22 6"/></svg></div><div><h4>Email</h4><a href="mailto:office@gibango.com">office@gibango.com</a></div></div>
+      <div class="ci-item"><div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7L22 6"/></svg></div><div><h4>Email</h4>
+        <div class="ci-emails">
+          <a href="mailto:office@gibango.co.tz"><span class="dep">Office</span>office@gibango.co.tz</a>
+          <a href="mailto:service@gibango.co.tz"><span class="dep">Service</span>service@gibango.co.tz</a>
+          <a href="mailto:marketing@gibango.co.tz"><span class="dep">Marketing</span>marketing@gibango.co.tz</a>
+        </div>
+      </div></div>
       <div class="ci-item"><div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 10c0 5-8 12-8 12s-8-7-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4>Location</h4><p>Mwaikibaki Road, 222 Mbezi Beach<br>Dar es Salaam, Tanzania</p></div></div>
       <div class="quick">
         <a class="btn btn-ghost" href="tel:+255743033310">Call Us</a>
-        <a class="btn btn-ghost" href="mailto:office@gibango.com">Email Us</a>
+        <a class="btn btn-ghost" href="mailto:office@gibango.co.tz">Email Us</a>
       </div>
     </div>
     <form id="contactForm" action="https://formspree.io/f/mgorvegp" method="POST" novalidate>
@@ -592,7 +601,7 @@ body.intro-lock{overflow:hidden}
         <p>Gibango Company Limited delivers world-class elevator and automatic door systems with expert installation, reliable maintenance, and unparalleled safety standards in Tanzania.</p>
       </div>
       <div class="foot-col"><h5>Company</h5><a href="#about">About</a><a href="#services">Services</a><a href="#products">Products</a><a href="#projects">Projects</a><a href="#team">Team</a></div>
-      <div class="foot-col"><h5>Contact</h5><a href="tel:+255743033310">+255 743 033 310</a><a href="mailto:office@gibango.com">office@gibango.com</a><a>Mbezi Beach, Dar es Salaam</a></div>
+      <div class="foot-col"><h5>Contact</h5><a href="tel:+255743033310">+255 743 033 310</a><a href="mailto:office@gibango.co.tz">office@gibango.co.tz</a><a href="mailto:service@gibango.co.tz">service@gibango.co.tz</a><a href="mailto:marketing@gibango.co.tz">marketing@gibango.co.tz</a><a>Mbezi Beach, Dar es Salaam</a></div>
     </div>
     <div class="foot-bottom">
       <span>© <span id="year"></span> Gibango Company Limited. All rights reserved.</span>
@@ -712,7 +721,7 @@ form.addEventListener('submit',async e=>{
     if(!res.ok) throw new Error('bad response');
     formBody.style.display='none'; success.classList.add('show'); form.reset();
   }catch(err){
-    alert('Sorry, the message could not be sent. Please email office@gibango.com or call +255 743 033 310.');
+    alert('Sorry, the message could not be sent. Please email office@gibango.co.tz or call +255 743 033 310.');
   }finally{ btn.disabled=false; btn.innerHTML=label; }
 });
 document.getElementById('sendAnother').addEventListener('click',()=>{form.reset();success.classList.remove('show');formBody.style.display='block';});
